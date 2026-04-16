@@ -13,7 +13,7 @@ from src.utils import save_object
 
 @dataclass
 class DataTransformationConfig:
-    preprocessor_obj_path=os.path.join('artfifacts', 'preprocessor.pkl')
+    preprocessor_obj_path=os.path.join('artifacts', 'preprocessor.pkl')
 
 class DataTransformation:
     def __init__(self):
@@ -37,7 +37,7 @@ class DataTransformation:
                 steps=[
                     ('Imputer', SimpleImputer(strategy='most_frequent')),
                     ('Encoding', OneHotEncoder()),
-                    ('Scaler', StandardScaler())
+                    ('Scaler', StandardScaler(with_mean=False))
                 ]
             )
             logging.info("Encoding and scaling pipeline completed")
@@ -63,7 +63,7 @@ class DataTransformation:
 
             logging.info("Read train and test data completed")
 
-            logging.info("Obtaining thr preprocessing object")
+            logging.info("Obtaining the preprocessing object")
 
             preprocessing_obj = self.get_data_transformer_object()
 
