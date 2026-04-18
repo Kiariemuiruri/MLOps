@@ -30,6 +30,13 @@ class DataIngestion:
             os.makedirs(os.path.dirname(self.ingestion_config.train_data_path), exist_ok=True)
             os.makedirs(os.path.dirname(self.ingestion_config.test_data_path), exist_ok=True)
 
+            df.rename(columns={'test preparation course':'test_preparation_course', 
+                               'parental level of education':'parental_level_of_education',
+                               'race/ethnicity':'race_ethnicity',
+                               'writing score':'writing_score',
+                               'reading score':'reading_score'}, inplace=True)
+            
+            print("New column names: {}".format(df.columns))
             logging.info("Train test split started")
             train_set, test_set = train_test_split(df, test_size=0.2, random_state=42)
 

@@ -8,4 +8,6 @@ xgboost
 catboost
 ipykernel
 dill
+Flask
+#Fast-API
 #-e .

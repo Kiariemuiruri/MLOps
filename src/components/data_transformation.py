@@ -22,9 +22,9 @@ class DataTransformation:
     def get_data_transformer_object(self):
         # This function is responsible for data transformation 
         try:
-            num_features = ["reading score", "writing score"]
+            num_features = ["reading_score", "writing_score"]
             cat_features = [
-                'gender', 'race/ethnicity', 'parental level of education', 'lunch', 'test preparation course'
+                'gender', 'race_ethnicity', 'parental_level_of_education', 'lunch', 'test_preparation_course'
             ]
 
             num_pipeline = Pipeline(
@@ -76,6 +76,8 @@ class DataTransformation:
             input_feature_test_df = test_df.drop(columns=[target_column_name], axis=1)
             target_feature_test_df = test_df[target_column_name]
 
+            #print("input columns: {}".format(input_feature_train_df.head()))
+            #print("target columns: {}".format(target_feature_train_df.head()))
             logging.info("Applying preprocessing on train and test df")
 
             input_feature_train_arr = preprocessing_obj.fit_transform(input_feature_train_df)
