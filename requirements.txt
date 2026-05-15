@@ -9,5 +9,6 @@ catboost
 ipykernel
 dill
 Flask
-#Fast-API
+fastapi
+uvicorn
 #-e .
