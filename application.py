@@ -22,6 +22,12 @@ class InputData(BaseModel):
 def home():
     return {"message": "ML API running"}
 
+@app.get("/health")
+def health():
+    return {
+        "status": "ok"
+    }
+
 @app.post("/predict")
 def predict(data:InputData):
     custom_data = CustomData(
